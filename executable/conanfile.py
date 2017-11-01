@@ -10,7 +10,7 @@ class ExecutableConan(ConanFile):
     generators = "cmake", "txt"
     settings = "os", "arch", "compiler", "build_type"
     license = ""
-    requires = "library_b/1.0@lba/testing"
+    requires = "library_b/1.0@lb/testing"
 
     def build(self):
         cmake = CMake(self)
@@ -19,13 +19,7 @@ class ExecutableConan(ConanFile):
         cmake.build()
 
     def package(self):
-        self.copy(pattern="*.h", dst="include", src="include", keep_path=True)
-        self.copy(pattern="*.lib", dst="lib", src="lib", keep_path=False)
-        self.copy(pattern="*.a", dst="lib", src="lib", keep_path=False)
-        self.copy(pattern="*.dll", dst="lib", src="bin", keep_path=False)
         self.copy(pattern="*.exe", dst="bin", src="bin", keep_path=False)
-        self.copy(pattern="*.jar", dst="lib", src="lib", keep_path=False)
-        self.copy(pattern="*.jar", dst="lib", src="bin", keep_path=False)
 
     def package_info(self):
         pass

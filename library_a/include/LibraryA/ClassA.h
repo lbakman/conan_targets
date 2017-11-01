@@ -30,7 +30,7 @@ public:
     ~ClassA();
 
     std::string name() const;
-    std::string fulleName() const;
+    std::string fullName() const;
 
 private:
 

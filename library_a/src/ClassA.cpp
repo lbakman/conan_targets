@@ -31,7 +31,7 @@ std::string ClassA::name() const {
     return "ClassA";
 }
 
-std::string ClassA::fulleName() const {
+std::string ClassA::fullName() const {
     return name();
 }
 

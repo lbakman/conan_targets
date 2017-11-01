@@ -10,7 +10,7 @@ class LibraryBConan(ConanFile):
     generators = "cmake", "txt"
     settings = "os", "arch", "compiler", "build_type"
     license = ""
-    requires = "library_a/1.0@lba/testing"
+    requires = "library_a/1.0@lb/testing"
 
     def build(self):
         cmake = CMake(self)
@@ -23,9 +23,6 @@ class LibraryBConan(ConanFile):
         self.copy(pattern="*.lib", dst="lib", src="lib", keep_path=False)
         self.copy(pattern="*.a", dst="lib", src="lib", keep_path=False)
         self.copy(pattern="*.dll", dst="lib", src="bin", keep_path=False)
-        self.copy(pattern="*.exe", dst="bin", src="bin", keep_path=False)
-        self.copy(pattern="*.jar", dst="lib", src="lib", keep_path=False)
-        self.copy(pattern="*.jar", dst="lib", src="bin", keep_path=False)
 
     def package_info(self):
         self.cpp_info.libs = ["library_b"]

@@ -22,9 +22,6 @@ class LibraryAConan(ConanFile):
         self.copy(pattern="*.lib", dst="lib", src="lib", keep_path=False)
         self.copy(pattern="*.a", dst="lib", src="lib", keep_path=False)
         self.copy(pattern="*.dll", dst="lib", src="bin", keep_path=False)
-        self.copy(pattern="*.exe", dst="bin", src="bin", keep_path=False)
-        self.copy(pattern="*.jar", dst="lib", src="lib", keep_path=False)
-        self.copy(pattern="*.jar", dst="lib", src="bin", keep_path=False)
 
     def package_info(self):
         self.cpp_info.libs = ["library_a"]

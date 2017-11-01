@@ -18,6 +18,9 @@
 *                                                               *
 ****************************************************************/
 #include "Executable.h"
+#if defined(DIRECT_DEPENDECY_ON_A)
+#include "LibraryA/ClassA.h"
+#endif //  defined(DIRECT_DEPENDECY_ON_A)
 #include "LibraryB/ClassB.h"
 
 #include <iostream>
@@ -31,8 +34,12 @@ Executable::~Executable() {
 }
 
 int Executable::run() {
+#if defined(DIRECT_DEPENDECY_ON_A)
+    LibraryA::ClassA a;
+    std::cout << "A: " << a.fullName() << std::endl;
+#endif //  defined(DIRECT_DEPENDECY_ON_A)
     LibraryB::ClassB b;
-    std::cout << b.fullName() << std::endl;
+    std::cout << "B: " << b.fullName() << std::endl;
     return 0;
 }
 
